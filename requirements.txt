@@ -1,0 +1,6 @@
+numpy
+scipy
+scikit-cuda
+psutil
+py-cpuinfo
+gputil
