@@ -125,6 +125,3 @@ def get_info(verbose=False):
             print(f"uuid: {gpu.uuid}")
 
     return info
-
-
-info = get_info(verbose=True)
