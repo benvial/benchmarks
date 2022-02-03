@@ -161,7 +161,7 @@ if __name__ == "__main__":
     for N in matsize:
         print("\n")
         print("#"*40)
-        print("matrix size = ", N)
+        print(f"Matrix size = {N} x {N}")
         matrix = np.random.random((N, N))
         for case in cases:
             print(">> case: ", case)

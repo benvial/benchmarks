@@ -40,9 +40,7 @@ def get_info(verbose=False):
 
         
     # CPU Information
-    # 
-    # Let's get some CPU information, such as the total number of cores, usage, etc:
-
+    
     # number of cores
     cores = dict(physical=psutil.cpu_count(logical=False),total=psutil.cpu_count(logical=True))
     
@@ -56,20 +54,14 @@ def get_info(verbose=False):
     
     cores["individual usage"] = percentages
     cores["total usage"] = psutil.cpu_percent()
-    
     info["cores"] = cores
 
-    # psutil's cpu_count() function returns number of cores, whereas cpu_freq() function returns CPU frequency as a namedtuple including current, min, and max frequency expressed in Mhz, you can set percpu=True to get per CPU frequency.
-    # 
-    # cpu_percent() method returns a float representing the current CPU utilization as a percentage, setting interval to 1 (seconds) will compare system CPU times elapsed before and after a second, we set percpu to True in order to get CPU usage of each core.
-    # Memory Usage
-
     # Memory Information
-    # get the memory details
     svmem = psutil.virtual_memory()
     info["svmem"] = svmem
     
     
+    # GPU Information
     try:
         gpus = GPUtil.getGPUs()
     except:
@@ -91,7 +83,7 @@ def get_info(verbose=False):
         print(f"Processor: {cpu_info['brand_raw']}")
         print(f"Python: {cpu_info['python_version']}")
 
-        # let's print CPU information
+        
         print("="*33, "CPU Info", "="*33)
         print("Physical cores:",cores["physical"])
         print("Total cores:",cores["total"])
@@ -109,12 +101,9 @@ def get_info(verbose=False):
         print(f"Available: {get_size(svmem.available)}")
         print(f"Used: {get_size(svmem.used)}")
         print(f"Percentage: {svmem.percent}%")
-        
 
         print("="*33, "GPU Information", "="*33)
-
         for gpu in gpus:
-
             print(f"ID: {gpu.id}")
             print(f"Name: {gpu.name}")
             print(f"Load: {gpu.load*100}%")
