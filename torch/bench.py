@@ -10,11 +10,7 @@ import scipy.linalg
 import scipy.fftpack
 
 
-
-# x = torch.rand(5, 3)
-# print(x)
-# 
-# torch.cuda.is_available()
+print("GPU?", torch.cuda.is_available())
 
 N=800
 import sys
