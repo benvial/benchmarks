@@ -66,7 +66,6 @@ def eig_magma(a):
         rwork = np.zeros((2 * N,), dtype)
 
     # Compute:
-    gpu_time = time.time()
     if t == "s":
         status = magma.magma_sgeev(
             jobvl,
@@ -174,7 +173,7 @@ if __name__ == "__main__":
                 W, V = eig(matrix)
             elapsed_time = time.time() - elapsed_time
             print("   elapsed time = ", elapsed_time)
-            info = get_info(verbose=True)
+            info = get_info(verbose=False)
             benchmark_info[case].append(info)
 
     np.savez(
