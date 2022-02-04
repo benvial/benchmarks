@@ -17,5 +17,5 @@ Run benchmark
 ```bash
 conda activate torch
 export OMP_NUM_THREADS=1
-python bench.py 1000 12
+python benchmark.py
 ```
