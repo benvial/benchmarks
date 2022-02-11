@@ -18,9 +18,10 @@ os.environ["OMP_NUM_THREADS"] = f"{nt}"
 import numpy as np
 
 
-N = 2000
+N = 2**11
+print(N)
 M = np.random.rand(N,N)
 t = -time.time()
 a,b = np.linalg.eig(M)
 t += time.time()
-print(f"lapsed time {t}")
+print(f"elapsed time {t}")
