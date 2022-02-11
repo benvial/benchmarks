@@ -4,11 +4,12 @@ import time
 import sys
 
 nt = int(sys.argv[1])
-os.environ["OMP_NUM_THREADS"] = f"{nt}"
+# os.environ["OMP_NUM_THREADS"] = f"{nt}"
+# os.environ["BLAS_NUM_THREADS"] = f"{nt}"
 # os.environ["OPENBLAS_NUM_THREADS"] = f"{nt}"
-# os.environ["MKL_NUM_THREADS"] =  f"{nt}"
-# os.environ["VECLIB_MAXIMUM_THREADS"] =  f"{nt}"
-# os.environ["NUMEXPR_NUM_THREADS"] =  f"{nt}"
+# os.environ["MKL_NUM_THREADS"] = f"{nt}"
+# os.environ["VECLIB_MAXIMUM_THREADS"] = f"{nt}"
+# os.environ["NUMEXPR_NUM_THREADS"] = f"{nt}"
 
 #
 # import mkl
@@ -18,10 +19,10 @@ os.environ["OMP_NUM_THREADS"] = f"{nt}"
 import numpy as np
 
 
-N = 2**11
+N = 2 ** 11
 print(N)
-M = np.random.rand(N,N)
+M = np.random.rand(N, N)
 t = -time.time()
-a,b = np.linalg.eig(M)
+a, b = np.linalg.eig(M)
 t += time.time()
 print(f"elapsed time {t}")
